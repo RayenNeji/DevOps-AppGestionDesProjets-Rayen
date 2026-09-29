@@ -162,7 +162,7 @@ L'application s'ouvre automatiquement sur **http://localhost:4200**
 Ce projet est conçu pour être intégré dans un pipeline Jenkins. Le `Jenkinsfile` à la racine du dépôt automatise notamment le build des images Docker et leur publication sur Docker Hub.
 
 ```
-Checkout SCM → Build Docker Images → Push Docker Hub → Déploiement Docker Compose
+Checkout SCM → Tests Backend/Frontend → Build Docker Images → Push Docker Hub → Déploiement Docker Compose
 ```
 
 Avant d'exécuter le pipeline, créer dans Jenkins une credential de type **Username with password** avec l'identifiant `dockerhub-credentials`. Utiliser le nom d'utilisateur Docker Hub et un token d'accès Docker Hub comme mot de passe. Le pipeline publie les images suivantes sous le compte `rayennj1919` :

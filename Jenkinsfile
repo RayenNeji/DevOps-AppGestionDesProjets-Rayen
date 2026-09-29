@@ -15,6 +15,29 @@ pipeline {
             }
         }
 
+        stage('Run Tests') {
+            parallel {
+                stage('Backend Tests') {
+                    steps {
+                        dir('backend') {
+                            sh 'sh mvnw test'
+                        }
+                    }
+                }
+
+                stage('Frontend Tests') {
+                    steps {
+                        dir('frontend') {
+                            sh '''
+                                npm ci
+                                npm test -- --watch=false
+                            '''
+                        }
+                    }
+                }
+            }
+        }
+
         stage('Docker Login') {
             steps {
                 withCredentials([
