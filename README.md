@@ -159,11 +159,16 @@ L'application s'ouvre automatiquement sur **http://localhost:4200**
 
 ## 🔧 Intégration Jenkins (CI/CD)
 
-Ce projet est conçu pour être intégré dans un pipeline Jenkins. Un `Jenkinsfile` peut être ajouté à la racine du dépôt pour automatiser les étapes suivantes :
+Ce projet est conçu pour être intégré dans un pipeline Jenkins. Le `Jenkinsfile` à la racine du dépôt automatise notamment le build des images Docker et leur publication sur Docker Hub.
 
 ```
-Checkout SCM → Build Backend (mvn) → Tests → Build Frontend (npm) → Archive Artifacts
+Checkout SCM → Build Docker Images → Push Docker Hub → Déploiement Docker Compose
 ```
+
+Avant d'exécuter le pipeline, créer dans Jenkins une credential de type **Username with password** avec l'identifiant `dockerhub-credentials`. Utiliser le nom d'utilisateur Docker Hub et un token d'accès Docker Hub comme mot de passe. Le pipeline publie les images suivantes sous le compte `rayenneji` :
+
+- `rayenneji/devops-backend:latest`
+- `rayenneji/devops-frontend:latest`
 
 Exemple de pipeline :
 
@@ -220,7 +225,7 @@ pipeline {
 | Build backend | Apache Maven |
 | Build frontend | npm / Angular CLI |
 | CI/CD | Jenkins |
-| Conteneurisation | Docker *(à venir)* |
+| Conteneurisation | Docker |
 
 ---
 
