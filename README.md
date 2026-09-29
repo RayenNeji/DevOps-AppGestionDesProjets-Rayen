@@ -165,10 +165,10 @@ Ce projet est conçu pour être intégré dans un pipeline Jenkins. Le `Jenkinsf
 Checkout SCM → Build Docker Images → Push Docker Hub → Déploiement Docker Compose
 ```
 
-Avant d'exécuter le pipeline, créer dans Jenkins une credential de type **Username with password** avec l'identifiant `dockerhub-credentials`. Utiliser le nom d'utilisateur Docker Hub et un token d'accès Docker Hub comme mot de passe. Le pipeline publie les images suivantes sous le compte `rayenneji` :
+Avant d'exécuter le pipeline, créer dans Jenkins une credential de type **Username with password** avec l'identifiant `dockerhub-credentials`. Utiliser le nom d'utilisateur Docker Hub et un token d'accès Docker Hub comme mot de passe. Le pipeline publie les images suivantes sous le compte `rayennj1919` :
 
-- `rayenneji/devops-backend:latest`
-- `rayenneji/devops-frontend:latest`
+- `rayennj1919/devops-backend:latest`
+- `rayennj1919/devops-frontend:latest`
 
 Exemple de pipeline :
 
